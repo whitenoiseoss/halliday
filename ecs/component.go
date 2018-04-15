@@ -1,6 +1,7 @@
 package ecs
 
 type ECSComponent interface {
+	Owner() uint64
 	Set(node string, data interface{})
 	Delete(node string)
 }
