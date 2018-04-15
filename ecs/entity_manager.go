@@ -10,10 +10,8 @@ var (
 	entityInc   uint64
 )
 
-type EntityContainer map[uint64]*Entity
-
 type EntityManager struct {
-	Entities EntityContainer
+	Entities map[uint64]*Entity
 }
 
 func (em *EntityManager) CreateEntity() uint64 {

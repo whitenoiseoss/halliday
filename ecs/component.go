@@ -1,15 +1,10 @@
 package ecs
 
-import "sync"
-
-type ComponentID uint32
-
 type Component struct {
-	Id       ComponentID
-	datalock *sync.RWMutex
-	Data     map[uint64]interface{}
+	Id       uint64
+	Category string
 }
 
-func (c *Component) ID() ComponentID {
+func (c *Component) ID() uint64 {
 	return c.Id
 }
