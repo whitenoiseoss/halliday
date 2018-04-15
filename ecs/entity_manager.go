@@ -23,7 +23,10 @@ func NewEntityManager(cm *ComponentManager) *EntityManager {
 
 // Creates an Entity and indexes it by ID (uint64)
 func (em *EntityManager) CreateEntity() uint64 {
+	// TODO: clean this up
 	ent := &Entity{Id: em.NextEntityID(), TypeId: 0}
+	// pass the ComponentManager along
+	ent.ComponentManager = em.ComponentManager
 	entid := ent.ID()
 	em.Lock()
 	em.Entities[entid] = ent
