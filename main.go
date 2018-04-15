@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
-	ECS_Engine := ecs.NewEngine()
+	ECS_Engine := ecs.NewECSEngine()
 	eid := ECS_Engine.EntityManager.CreateEntity()
+	eid2 := ECS_Engine.EntityManager.CreateEntity()
 	fmt.Println(eid)
+	fmt.Println(eid2)
 	fmt.Println(ECS_Engine.EntityManager.Len())
 }

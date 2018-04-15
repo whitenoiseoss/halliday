@@ -1,14 +1,15 @@
 package ecs
 
 type Entity struct {
-	id     uint64
-	typeid uint16
+	Id               uint64
+	TypeId           uint16
+	ComponentManager *ComponentManager
 }
 
 func (e *Entity) ID() uint64 {
-	return e.id
+	return e.Id
 }
 
 func (e *Entity) Type() uint16 {
-	return e.typeid
+	return e.TypeId
 }

@@ -1,14 +1,16 @@
 package ecs
 
-type Engine struct {
-	EntityManager *EntityManager
-	// ComponentManager *ComponentManager
-	// SystemManager    *SystemManager
+type ECSEngine struct {
+	EntityManager    *EntityManager
+	ComponentManager *ComponentManager
+	SystemManager    *SystemManager
 }
 
-func NewEngine() *Engine {
-	engine := &Engine{EntityManager: &EntityManager{Entities: make(EntityContainer)}}
-	// ComponentManager: &ComponentManager{},
-	// SystemManager: &SystemManager{}
+func NewECSEngine() *ECSEngine {
+	engine := new(ECSEngine)
+	engine.ComponentManager = NewComponentManager()
+	engine.EntityManager = NewEntityManager(engine.ComponentManager)
+	engine.SystemManager = NewSystemManager()
+
 	return engine
 }
