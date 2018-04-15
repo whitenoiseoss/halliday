@@ -5,15 +5,19 @@ import (
 	"sync/atomic"
 )
 
+// get ComponentByID
+
 // ComponentManager is a struct factory
 // possible that ComponentManager will go on Entity
 type ComponentManager struct {
 	sync.RWMutex
-	inc uint64
+	inc               uint64
+	ComponentRegistry *ComponentRegistry
 }
 
-func NewComponentManager() *ComponentManager {
+func NewComponentManager(cr *ComponentRegistry) *ComponentManager {
 	cm := new(ComponentManager)
+	cm.ComponentRegistry = cr
 
 	return cm
 }
@@ -21,6 +25,8 @@ func NewComponentManager() *ComponentManager {
 // func CreateBaseComponent()
 
 // func CreateComponent() -- read from ComponentRegistry
+
+// func AddComponent(ent uint64)
 
 // Returns next valid Component ID, starts at 0
 func (cm *ComponentManager) NextComponentID() uint64 {

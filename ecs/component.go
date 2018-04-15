@@ -1,24 +1,23 @@
 package ecs
 
 type ECSComponent interface {
-    Id, EntityID uint64
-    TypeId uint16
-    Data map[string]interface{}
-    Set(node string, data interface{})
-    Delete(node string)
+	Set(node string, data interface{})
+	Delete(node string)
 }
 
 type Component struct {
-	Id, EntityID uint64
-	TypeId       uint16
-	Data         map[string]interface{}
+	Id       uint64
+	EntityID uint64
+	TypeId   uint16
+	Data     map[string]interface{}
+	Enabled  bool
 }
 
 func (c *Component) ID() uint64 {
 	return c.Id
 }
 
-func (c *Component) EntityID() uint64 {
+func (c *Component) Owner() uint64 {
 	return c.EntityID
 }
 
@@ -31,7 +30,5 @@ func (c *Component) Set(node string, data interface{}) {
 }
 
 func (c *Component) Delete(node string) {
-	if n, ok := c.Data[node]; ok {
-		delete(c.Data, node)
-	}
+	delete(c.Data, node)
 }

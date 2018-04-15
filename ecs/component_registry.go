@@ -11,5 +11,23 @@ type ComponentRegistry struct {
 	Catalog map[string]reflect.Type
 }
 
-func (cr *ComponentRegistry) RegisterComponent() {
+func NewComponentRegistry() *ComponentRegistry {
+	cr := new(ComponentRegistry)
+	cr.Catalog = make(map[string]reflect.Type)
+
+	return cr
+}
+
+func (cr *ComponentRegistry) RegisterComponent(name string, comp ECSComponent) error {
+	if _, exists := cr.Catalog[name]; exists {
+		// TODO: return a Halliday error
+		return nil
+	}
+
+	cr.Catalog[name] = reflect.TypeOf(comp)
+	return nil
+}
+
+func (cr *ComponentRegistry) Type(name string) reflect.Type {
+	return cr.Catalog[name]
 }
