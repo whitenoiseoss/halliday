@@ -74,6 +74,7 @@ func (em *EntityManager) All() []*Entity {
 	return entities
 }
 
+// TODO: split out an IDVendor, share across E C S?
 // Returns next valid Entity ID, starts at 0
 func (em *EntityManager) NextEntityID() uint64 {
 	// start at 0

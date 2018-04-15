@@ -10,6 +10,6 @@ func (e *Entity) ID() uint64 {
 	return e.Id
 }
 
-func (e *Entity) Type() uint16 {
+func (e *Entity) TypeID() uint16 {
 	return e.TypeId
 }
