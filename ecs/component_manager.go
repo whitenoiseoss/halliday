@@ -5,7 +5,9 @@ import (
 	"sync/atomic"
 )
 
-// get ComponentByID
+// get component by id?
+// get components by type
+// get components on entity id
 
 // ComponentManager is a struct factory
 // possible that ComponentManager will go on Entity
