@@ -45,3 +45,8 @@ func (vmp *VMPool) Put(r *goja.Runtime) {
 	defer vmp.lock.Unlock()
 	vmp.Pool = append(vmp.Pool, r)
 }
+
+// Len returns how many VMs are in the Pool
+func (vmp *VMPool) Len() int {
+	return len(vmp.Pool)
+}
