@@ -1,0 +1,6 @@
+- split into own repos:
+ - api
+ - auth
+ - ecs
+ - goja
+ - lua
