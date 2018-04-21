@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"reflect"
-	"sync"
 
 	"github.com/dop251/goja"
 	"github.com/whitenoiseoss/halliday/ecs"
@@ -18,11 +17,6 @@ type Test struct {
 // Bark is a method that makes Test act like a dog
 func (t *Test) Bark() {
 	fmt.Println("Woof")
-}
-
-// VMPool is a pool of Goja Runtimes
-type VMPool struct {
-	lock sync.Mutex
 }
 
 func main() {
